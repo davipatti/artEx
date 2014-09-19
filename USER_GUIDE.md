@@ -45,9 +45,13 @@ Copyright (C) 2014 Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ
 
 When using this program please cite:
 
-Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ. 2014. Phylogeny, paleontology, and primates: do incomplete fossils bias the tree of life? Systematic Biology. doi:10.5061/dryad.tk87q
+Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ. 2014. Phylogeny,
+paleontology, and primates: do incomplete fossils bias the tree of life?
+Systematic Biology. doi:10.5061/dryad.tk87q
 
-This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you are welcome to redistribute it under certain conditions. Please see the source file for more details.
+This program comes with ABSOLUTELY NO WARRANTY. This is free software, and you
+are welcome to redistribute it under certain conditions. Please see the source
+file for more details.
 
 ----------
 Please enter template string (with/without name):
