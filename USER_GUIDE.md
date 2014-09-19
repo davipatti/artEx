@@ -1,5 +1,5 @@
 # *Fossilize* User Guide
-#### Aleks Piotrowski, David Pattinson
+##### Aleks Piotrowski, David Pattinson
 
 Fossilize was written to aid the production of artificial fossils employed in artificial extinction analysis. See the reference below for more details, and cite that reference when using the program.
 
