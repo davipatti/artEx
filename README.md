@@ -5,4 +5,4 @@ Artificial extinction scripts employed in Pattinson DJ, Thompson RS, Piotrowski 
 
 ---
 
-To start making artificial fossils download `fossilize.py` and see the user guide.
+To start making artificial fossils download `fossilize.py` and see the [user guide](https://github.com/davipatti/artEx/blob/master/USER_GUIDE.md).
