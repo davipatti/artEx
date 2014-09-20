@@ -1,7 +1,9 @@
 artEx
 =======
 
-Artificial extinction scripts employed in Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ. 2014. **Phylogeny, paleontology, and primates: do incomplete fossils bias the tree of life?** *Systematic Biology*. doi:10.5061/dryad.tk87q
+A script to make artificial fossils. 
+
+- Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ. 2014. [**Phylogeny, paleontology, and primates: do incomplete fossils bias the tree of life?**](http://sysbio.oxfordjournals.org/content/early/2014/09/19/sysbio.syu077.abstract?keytype=ref&ijkey=z6NEPkgErNvKMEh) *Systematic Biology*. doi:10.5061/dryad.tk87q
 
 ---
 
