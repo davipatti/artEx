@@ -1,11 +1,9 @@
 # *Fossilize* User Guide
 ##### Aleks Piotrowski, David Pattinson
 
-Fossilize was written to aid the production of artificial fossils employed in artificial extinction analysis. See the reference below for more details, and cite that reference when using the program.
+Fossilize makes artificial fossils to use in artificial extinction analysis. It takes a subject taxon's character states and modifies them based on a template fossil, whereby characters missing (= ‘?’) in the template fossil are treated as missing in the subject taxon. See this reference for more details:
 
 - Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ. 2014. **Phylogeny, paleontology, and primates: do incomplete fossils bias the tree of life?** *Systematic Biology.* doi:10.5061/dryad.tk87q
-
-Briefly, Fossilize takes character states from a subject taxon's and modifies them based on data from a template fossil, whereby characters missing (= ‘?’) in the template fossil are treated as missing in the subject taxon.
 
 ## Installation
 
