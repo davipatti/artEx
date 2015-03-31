@@ -11,7 +11,7 @@ Written and tested in Python 2.7.8 (but may work in others). Go [here](https://w
 
 You will need to install [DendroPy](https://pythonhosted.org/DendroPy/).
 
-## Input Data
+## Inputs
 
 Look in the example data folder.
 
