@@ -62,7 +62,7 @@ subject_counter_dict = {}
 
 with open(args.AFT) as AFTfileObj:
     for line in AFTfileObj:
-        split_line = line.split()
+        split_line = line.split('\t')
         template = split_line[0]
         subject = split_line[1]
         AFTstring = split_line[2].rstrip().replace(';', '')
