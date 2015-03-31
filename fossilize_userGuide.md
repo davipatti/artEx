@@ -1,4 +1,4 @@
-# *Fossilize* User Guide
+# *fossilize.py* User Guide
 ##### Aleks Piotrowski, David Pattinson
 
 Fossilize makes artificial fossils to use in artificial extinction analysis. It takes a subject taxon's character states and modifies them based on a template fossil, whereby characters missing (= ‘?’) in the template fossil are treated as missing in the subject taxon. See this reference for more details:
