@@ -23,7 +23,7 @@ Look in the example data folder.
 
 `Absarokius	Alouatta	(Dermoptera,Tupaia,((((Alouatta,((Aotus,(Cebus,Saimiri)),Callicebus)),(((Chlorocebus,Macaca),Colobus),(Hylobates,Pan))),Tarsius),((((Arctocebus,Perodicticus),(Loris,Nycticebus)),(Galago,Otolemur)),(((((Cheirogaleus,Microcebus),Lepilemur),Propithecus),(Lemur,Varecia)),Daubentonia))));`
 
-This is a tab delimited line. The first field is the template (`Absarokius`), the second field is the subject (`Alouatta`), and the final field is a newick format AFT.
+This is a tab delimited line. The first field is the template (`Absarokius`), the second field is the subject (`Alouatta`), and the final field is a newick format AFT. The trailing semicolon is not necessary.
 
 ## Usage
 
