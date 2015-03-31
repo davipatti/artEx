@@ -1,7 +1,7 @@
 artEx
 =======
 
-A script to make artificial fossils, which can be used in artificial extinction analyses.
+Scripts to make artificial fossils and analyse artificial fossil topologies.
 
 - Pattinson DJ, Thompson RS, Piotrowski A, Asher RJ. [**Phylogeny, paleontology, and primates: do incomplete fossils bias the tree of life?**](http://sysbio.oxfordjournals.org/content/64/2/169) *Systematic Biology* (2015) 64 (2): 169-186. doi:10.5061/dryad.tk87q
 
