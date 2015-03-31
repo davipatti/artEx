@@ -1,4 +1,4 @@
-# aftEctComp user guide
+# aftEctComp.py user guide
 ##### David Pattinson
 
 aftEctComp.py does AFT-ECT comparisons as described in:
@@ -13,12 +13,17 @@ Go [here](https://www.python.org/downloads/) to download Python and for informat
 
 You will need to install [DendroPy](https://pythonhosted.org/DendroPy/).
 
-## Example data
+## Input Data
 
 Look in the example data folder.
 
-- 'ECT.txt' contains an example ECT (from the reference above)
-- 'AFTsample.txt' contains 100 sample AFTs (again from the reference above)
+- 'ECT.txt' contains an example ECT (from the reference above):
+`(Dermoptera,Tupaia,(((((Alouatta,(Aotus,(Cebus,Saimiri))),Callicebus),(((Chlorocebus,Macaca),Colobus),(Hylobates,Pan))),Tarsius),((((Arctocebus,Perodicticus),(Loris,Nycticebus)),(Galago,Otolemur)),(((((Cheirogaleus,Microcebus),Lepilemur),Propithecus),(Lemur,Varecia)),Daubentonia))))`
+
+- 'AFTsample.txt' contains AFTs for three templates (again from the reference above). An example line is:
+`Absarokius	Alouatta	(Dermoptera,Tupaia,((((Alouatta,((Aotus,(Cebus,Saimiri)),Callicebus)),(((Chlorocebus,Macaca),Colobus),(Hylobates,Pan))),Tarsius),((((Arctocebus,Perodicticus),(Loris,Nycticebus)),(Galago,Otolemur)),(((((Cheirogaleus,Microcebus),Lepilemur),Propithecus),(Lemur,Varecia)),Daubentonia))));`
+
+This is a tab delimited line. The first field is the template (`Absarokius`), the second field is the subject (`Alouatta`), and the final field is a newick format AFT.
 
 ## Usage
 
