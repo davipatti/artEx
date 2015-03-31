@@ -1,4 +1,4 @@
-# aftEctComp.py user guide
+# *aftEctComp.py* User guide
 ##### David Pattinson
 
 aftEctComp.py does AFT-ECT comparisons as described in:
