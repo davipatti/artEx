@@ -7,4 +7,6 @@ A script to make artificial fossils, which can be used in artificial extinction 
 
 ---
 
-To start making artificial fossils download this repository and see the [user guide](https://github.com/davipatti/artEx/blob/master/USER_GUIDE.md).
+To start making artificial fossils download this repository and see the fossilize.py [user guide](https://github.com/davipatti/artEx/blob/master/fossilize_userGuide.md).
+
+To do AFT-ECT comparisons see the aftEctComp.py [user guide](https://github.com/davipatti/artEx/blob/master/aftEctComp_userGuide.md).
