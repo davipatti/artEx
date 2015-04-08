@@ -22,8 +22,13 @@ parser=argparse.ArgumentParser(
     description='This script conducts AFT-ECT comparisons. '
                 'For a given AFT-ECT pair it returns:'
                 ' (A) ECT clades absent from the AFT,'
-                ' (B) n clades lost due to poor resolution (PR), and'
-                ' (C) n clades lost due to topological rearrangement (TR).')
+                ' (B) AFT clades absent from the ECT,'
+                ' (C) n clades lost due to poor resolution (PR), and'
+                ' (D) n clades lost due to topological rearrangement (TR).'
+                ' NOTE: C and D are with respect to ECT clades absent from '
+                ' the AFT\n'
+                ' templateAverages.txt also refers to ECT clades absent from'
+                ' AFTs.')
 parser.add_argument(
     '-e', '--ECT', required=True,
     help='Single line file containing ECT. E.g.:\n'
@@ -50,7 +55,8 @@ AFT_ECT_comparisons = open('AFTECTcomparisons.txt', 'w')
 # Labels columns
 AFT_ECT_comparisons.write('template' + '\t'  +\
                           'subject' + '\t' +\
-                          'ECT clades absent from AFT' + '\t' +\
+                          'ECT-absent-AFT' + '\t' +\
+                          'AFT-absent-ECT' + '\t' +\
                           'PR' + '\t' +\
                           'TR' + '\n')
 
@@ -74,8 +80,8 @@ with open(args.AFT) as AFTfileObj:
         # false_positives_and_negatives returns a tuple:
         #   - first element is the number of AFT clades not in the ECT
         #   - second element is the number of ECT clades not in the AFT
-        #   - second element is the one we want
         false_positives_and_negatives = ECT.false_positives_and_negatives(AFT)
+        n_AFT_clades_absent_from_ECT = false_positives_and_negatives[0]
         n_ECT_clades_absent_from_AFT = false_positives_and_negatives[1]
 
         # calculates number of ECT clades lost from AFT due to Poor Resolution 
@@ -93,6 +99,7 @@ with open(args.AFT) as AFTfileObj:
         AFT_ECT_comparisons.write(template + '\t' + \
                                   subject + '\t' + \
                                   str(n_ECT_clades_absent_from_AFT) + '\t'+ \
+                                  str(n_AFT_clades_absent_from_ECT) + '\t'+ \
                                   str(PR) + '\t' + \
                                   str(TR) + '\n')
 
