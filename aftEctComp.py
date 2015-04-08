@@ -3,10 +3,10 @@ import dendropy
 import argparse
 
 '''
-This programs takes:
+This script takes:
 - an ECT string
 - a file containing rows of AFTs
-- number of taxa
+- the number of taxa
 
 It returns for each AFT-ECT comparison:
 -the number of ECT clades absent from the AFT
@@ -14,15 +14,15 @@ It returns for each AFT-ECT comparison:
 -the number of ECT clades lost due to topological rearrangement
 
 These values were checked against the first dataset analyses (which were done
-by eye) and differed in 6.29% of cases, which I attribute to human error in 
-the first analysis.
+by eye) and differed in 6.29 percent of cases, which I attribute to human
+error in the first analysis.
 '''
 
 parser=argparse.ArgumentParser(
-    description='This script conducts AFT-ECT comparisons. '
-                'For a given AFT-ECT pair it returns:'
-                ' (A) ECT clades absent from the AFT,'
-                ' (B) AFT clades absent from the ECT,'
+    description='This script does AFT-ECT comparisons.'
+                'For a given AFT-ECT pair it outputs:'
+                ' (A) ECT clades absent from the AFT'
+                ' (B) AFT clades absent from the ECT'
                 ' (C) n clades lost due to poor resolution (PR), and'
                 ' (D) n clades lost due to topological rearrangement (TR).'
                 ' NOTE: C and D are with respect to ECT clades absent from '
@@ -43,22 +43,27 @@ args=parser.parse_args()
 
 ntaxa = args.nTax
 
+print "Loading ECT:"
+
 # Make ECT
 with open(args.ECT) as ECTfileObj:
     ECT_string = ECTfileObj.readline().rstrip().replace(';', '')
 ECT = dendropy.Tree.get_from_string(ECT_string, schema='newick')
-n_ECTstring_openBrackets = ECT_string.count('(')
+
+ECT.print_plot()
+
+ECTstring_openBrackets = ECT_string.count('(')
 
 # Text file for writing AFT-ECT comparisons
-AFT_ECT_comparisons = open('AFTECTcomparisons.txt', 'w')
+AFT_ECT_comparisons = open('AFT-ECTcomparisons.txt', 'w')
 
 # Labels columns
-AFT_ECT_comparisons.write('template' + '\t'  +\
-                          'subject' + '\t' +\
-                          'ECT-absent-AFT' + '\t' +\
-                          'AFT-absent-ECT' + '\t' +\
-                          'PR' + '\t' +\
-                          'TR' + '\n')
+AFT_ECT_comparisons.write('Template\t'
+                          'Subject\t'
+                          'ECT-clades-absent-from-AFT\t'
+                          'AFT-clades-absent-from-ECT\t'
+                          'PR\t'
+                          'TR\n')
 
 # Template dictionary
 template_dict = {}
@@ -72,6 +77,7 @@ with open(args.AFT) as AFTfileObj:
         template = split_line[0]
         subject = split_line[1]
         AFTstring = split_line[2].rstrip().replace(';', '')
+        print "Comparing %s:%s AFT" % (template, subject)
 
         # AFT tree object
         AFT = dendropy.Tree.get_from_string(AFTstring, schema='newick')
@@ -81,25 +87,25 @@ with open(args.AFT) as AFTfileObj:
         #   - first element is the number of AFT clades not in the ECT
         #   - second element is the number of ECT clades not in the AFT
         false_positives_and_negatives = ECT.false_positives_and_negatives(AFT)
-        n_AFT_clades_absent_from_ECT = false_positives_and_negatives[0]
-        n_ECT_clades_absent_from_AFT = false_positives_and_negatives[1]
+        AFT_clades_absent_from_ECT = false_positives_and_negatives[0]
+        ECT_clades_absent_from_AFT = false_positives_and_negatives[1]
 
         # calculates number of ECT clades lost from AFT due to Poor Resolution 
         # (PR) by subtracting the number of open brackets found in the AFT
         # string from the number expected in a fully resolved topology with
         # ntaxa (=ntaxa - 1)
-        n_AFT_openBrackets = AFTstring.count('(')
-        PR = n_ECTstring_openBrackets - n_AFT_openBrackets
+        AFT_openBrackets = AFTstring.count('(')
+        PR = ECTstring_openBrackets - AFT_openBrackets
 
         # Calculates number of ECT clades lost from AFT due to Topological
         # Rearrangements (TR)
-        TR = n_ECT_clades_absent_from_AFT - PR
+        TR = ECT_clades_absent_from_AFT - PR
 
         # Writes metric to output file
         AFT_ECT_comparisons.write(template + '\t' + \
                                   subject + '\t' + \
-                                  str(n_ECT_clades_absent_from_AFT) + '\t'+ \
-                                  str(n_AFT_clades_absent_from_ECT) + '\t'+ \
+                                  str(ECT_clades_absent_from_AFT) + '\t'+ \
+                                  str(AFT_clades_absent_from_ECT) + '\t'+ \
                                   str(PR) + '\t' + \
                                   str(TR) + '\n')
 
@@ -109,7 +115,7 @@ with open(args.AFT) as AFTfileObj:
             template_dict[template] = 0
 
         # Adds number of ECT clades absent from AFT to template key
-        template_dict[template] += n_ECT_clades_absent_from_AFT
+        template_dict[template] += ECT_clades_absent_from_AFT
 
         # Adds the template to the subject counter dictionary if not there
         if template not in subject_counter_dict:
@@ -118,11 +124,18 @@ with open(args.AFT) as AFTfileObj:
         # Adds 1 every time a given template is processed to the subject counter
         subject_counter_dict[template] += 1
 
+print "\nAFT-ECT comparisons written to 'AFT-ECTcomparisons.txt'\n"
+
 template_averages = open('templateAverages.txt', 'w')
 
 for template in template_dict:
     template_dict[template] = template_dict[template] / subject_counter_dict[template]
     template_averages.write(template + '\t' + str(template_dict[template]) + '\n')
 
+print "\nAverage number of ECT clades absent from AFT for a given template\n"\
+      "written to 'templateAverages.txt'.\n"
+
 AFT_ECT_comparisons.close()
 template_averages.close()
+
+print "Done"
