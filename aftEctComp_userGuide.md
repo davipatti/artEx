@@ -7,9 +7,13 @@ aftEctComp.py does AFT-ECT comparisons as described in:
 
 ## Installation
 
-Written and tested in Python 2.7.8 (but may work in others). Go [here](https://www.python.org/downloads/) to download Python and for information on it’s installation.
+Written and tested in [Python 2.7](https://www.python.org/downloads/release/python-2716/).
 
-You will need to install [DendroPy](https://pythonhosted.org/DendroPy/).
+You will need to install the [DendroPy](https://dendropy.org) python package. Recent DendroPy versions (4.0.0 and above) do not support python 2. Install the legacy version with:
+
+```bash
+pip install dendropy==3.12.3
+```
 
 ## Inputs
 
